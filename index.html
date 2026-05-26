@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLLab - Learn SQL with Real Queries</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/dracula.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SQLLab</h1>
+            <p class="subtitle">Learn SQL with Real Queries</p>
+        </header>
+
+        <div class="main-content">
+            <div class="editor-section">
+                <div class="section-header">
+                    <h2>SQL Editor</h2>
+                    <div class="button-group">
+                        <button id="restoreBtn" class="btn btn-secondary">Restore DB</button>
+                        <button id="executeBtn" class="btn btn-primary">Run Query</button>
+                    </div>
+                </div>
+                <textarea id="sqlEditor"></textarea>
+                <div id="queryStatus" class="query-status"></div>
+            </div>
+
+            <div class="sidebar">
+                <div class="schema-section">
+                    <h2>Database Schema</h2>
+                    <div id="schemaViewer" class="schema-viewer">
+                        <p>Loading schema...</p>
+                    </div>
+                </div>
+
+                <div class="hints-section">
+                    <h2>Query Hints</h2>
+                    <div class="hints-list">
+                        <button class="hint-btn" data-hint="select">SELECT</button>
+                        <button class="hint-btn" data-hint="insert">INSERT</button>
+                        <button class="hint-btn" data-hint="update">UPDATE</button>
+                        <button class="hint-btn" data-hint="delete">DELETE</button>
+                        <button class="hint-btn" data-hint="create">CREATE</button>
+                        <button class="hint-btn" data-hint="alter">ALTER</button>
+                        <button class="hint-btn" data-hint="drop">DROP</button>
+                        <button class="hint-btn" data-hint="join">JOIN</button>
+                        <button class="hint-btn" data-hint="where">WHERE</button>
+                        <button class="hint-btn" data-hint="groupby">GROUP BY</button>
+                        <button class="hint-btn" data-hint="orderby">ORDER BY</button>
+                        <button class="hint-btn" data-hint="aggregate">Aggregate</button>
+                        <button class="hint-btn" data-hint="having">HAVING</button>
+                        <button class="hint-btn" data-hint="subquery">Subquery</button>
+                        <button class="hint-btn" data-hint="distinct">DISTINCT</button>
+                        <button class="hint-btn" data-hint="limit">LIMIT</button>
+                        <button class="hint-btn" data-hint="union">UNION</button>
+                        <button class="hint-btn" data-hint="like">LIKE</button>
+                        <button class="hint-btn" data-hint="in">IN</button>
+                        <button class="hint-btn" data-hint="between">BETWEEN</button>
+                        <button class="hint-btn" data-hint="isnull">IS NULL</button>
+                    </div>
+                    <div id="hintDisplay" class="hint-display"></div>
+                </div>
+
+                <div class="history-section">
+                    <div class="section-header">
+                        <h2>Query History</h2>
+                        <button id="clearHistoryBtn" class="btn btn-small">Clear</button>
+                    </div>
+                    <div id="historyList" class="history-list">
+                        <p class="placeholder">No queries yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <div class="section-header">
+                <h2>Results</h2>
+                <button id="exportBtn" class="btn btn-secondary" style="display: none;">Export CSV</button>
+            </div>
+            <div id="resultsContainer" class="results-container">
+                <p class="placeholder">Run a query to see results here</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/sql/sql.min.js"></script>
+    <script src="/static/js/editor.js"></script>
+</body>
+</html>
