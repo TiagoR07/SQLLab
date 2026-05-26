@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/${file}`
         });
 
-        const response = await fetch('/static/database/sample.db');
+        const response = await fetch('static/database/sample.db');
         const buffer = await response.arrayBuffer();
         initialDbBuffer = new Uint8Array(buffer);
 
